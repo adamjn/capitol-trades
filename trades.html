@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all congressional stock trades. Filter by party, chamber, and transaction type. Track what politicians are buying and selling.">
+  <title>All Trades - Capitol Trades</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">🏛️</div>
+        <span>Capitol Trades</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="trades.html" class="nav-link active">Trades</a>
+        <a href="politicians.html" class="nav-link">Politicians</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <div class="section">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="section-header">
+          <div class="section-title">
+            <div class="section-icon">📊</div>
+            <h1>All Trades</h1>
+          </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+          <div class="filter-group">
+            <label class="filter-label">Party</label>
+            <select id="party-filter" class="filter-select">
+              <option value="">All Parties</option>
+              <option value="Democrat">Democrat</option>
+              <option value="Republican">Republican</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Chamber</label>
+            <select id="chamber-filter" class="filter-select">
+              <option value="">All Chambers</option>
+              <option value="House">House</option>
+              <option value="Senate">Senate</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">Type</label>
+            <select id="type-filter" class="filter-select">
+              <option value="">Buy & Sell</option>
+              <option value="buy">Buy Only</option>
+              <option value="sell">Sell Only</option>
+            </select>
+          </div>
+          <div class="filter-group" style="flex: 1;">
+            <label class="filter-label">Search</label>
+            <input type="text" id="search-input" class="filter-input" placeholder="Search by ticker, company, or politician...">
+          </div>
+        </div>
+
+        <!-- Trades Table -->
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Politician</th>
+                <th>Party</th>
+                <th>Chamber</th>
+                <th>State</th>
+                <th>Stock</th>
+                <th>Type</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody id="trades-table-body">
+              <!-- Trades will be rendered by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p class="footer-text">
+          © 2026 Capitol Trades. Data sourced from public STOCK Act disclosures.
+        </p>
+        <div class="footer-links">
+          <a href="https://efdsearch.senate.gov/search/home/" target="_blank" class="footer-link">Senate Disclosures</a>
+          <a href="https://disclosures-clerk.house.gov/" target="_blank" class="footer-link">House Disclosures</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

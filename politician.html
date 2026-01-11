@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View detailed stock trading history and portfolio for this U.S. politician.">
+    <title>Politician Profile - Capitol Trades</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <div class="nav-logo-icon">🏛️</div>
+                <span>Capitol Trades</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="trades.html" class="nav-link">Trades</a>
+                <a href="politicians.html" class="nav-link">Politicians</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <section id="profile-header" class="profile-header">
+        <!-- Profile content will be rendered by JavaScript -->
+    </section>
+
+    <!-- Page Content -->
+    <div class="section">
+        <div class="container">
+
+            <!-- Current Portfolio Section -->
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">💼</div>
+                    <h2>Current Portfolio</h2>
+                </div>
+            </div>
+
+            <div class="table-container" style="margin-bottom: 3rem;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Stock</th>
+                            <th>Shares (Est.)</th>
+                            <th>Value (Est.)</th>
+                            <th>Total Change</th>
+                        </tr>
+                    </thead>
+                    <tbody id="politician-portfolio-body">
+                        <!-- Portfolio will be rendered by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Trade History Section -->
+            <div class="section-header">
+                <div class="section-title">
+                    <div class="section-icon">📊</div>
+                    <h2>Trade History</h2>
+                </div>
+            </div>
+
+            <!-- Trades Table -->
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Trade Date</th>
+                            <th>Stock</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Filed Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="politician-trades-body">
+                        <!-- Trades will be rendered by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2026 Capitol Trades. Data sourced from public STOCK Act disclosures.
+                </p>
+                <div class="footer-links">
+                    <a href="https://efdsearch.senate.gov/search/home/" target="_blank" class="footer-link">Senate
+                        Disclosures</a>
+                    <a href="https://disclosures-clerk.house.gov/" target="_blank" class="footer-link">House
+                        Disclosures</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
