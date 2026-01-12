@@ -351,7 +351,13 @@ function initPoliticianPage() {
   // Render Top Traded Stocks Chart
   const historyChart = document.getElementById('politician-history-chart');
   if (historyChart && window.analytics && window.BarChart) {
-    const topStocks = window.analytics.getTopStocksForPolitician(politicianTrades);
+    // Filter trades for the last 30 days
+    const thirtyDaysAgo = new Date();
+    thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+    const recentTrades = politicianTrades.filter(t => new Date(t.date) >= thirtyDaysAgo);
+
+    const topStocks = window.analytics.getTopStocksForPolitician(recentTrades, 10);
     historyChart.innerHTML = window.BarChart.render(topStocks);
   } else if (historyChart) {
     historyChart.innerHTML = '<div class="error-state">Analytics module not loaded</div>';

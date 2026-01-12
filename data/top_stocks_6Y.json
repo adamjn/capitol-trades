@@ -30,8 +30,43 @@
     {
         "rank": 5,
         "ticker": "META",
-        "company": "Meta Platforms",
+        "company": "Meta Platforms Inc",
         "volume": 245000000,
         "volumeStr": "$245.0M"
+    },
+    {
+        "rank": 6,
+        "ticker": "BRK.B",
+        "company": "Berkshire Hathaway",
+        "volume": 215000000,
+        "volumeStr": "$215.0M"
+    },
+    {
+        "rank": 7,
+        "ticker": "TSLA",
+        "company": "Tesla Inc",
+        "volume": 198000000,
+        "volumeStr": "$198.0M"
+    },
+    {
+        "rank": 8,
+        "ticker": "JNJ",
+        "company": "Johnson & Johnson",
+        "volume": 185000000,
+        "volumeStr": "$185.0M"
+    },
+    {
+        "rank": 9,
+        "ticker": "WMT",
+        "company": "Walmart Inc",
+        "volume": 172000000,
+        "volumeStr": "$172.0M"
+    },
+    {
+        "rank": 10,
+        "ticker": "PG",
+        "company": "Procter & Gamble",
+        "volume": 165000000,
+        "volumeStr": "$165.0M"
     }
 ]

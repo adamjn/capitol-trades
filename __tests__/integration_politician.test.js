@@ -37,7 +37,8 @@ describe('Politician Page Integration', () => {
             id: 'P0005', name: 'Nancy Pelosi', party: 'Democrat', committees: [], portfolio: []
         });
         window.getTradesByPolitician = jest.fn().mockReturnValue([
-            { ticker: 'AAPL', amount: '$1M' }
+            { ticker: 'AAPL', amount: '$1M', date: new Date().toISOString() }, // Recent
+            { ticker: 'MSFT', amount: '$500K', date: '2020-01-01' } // Old
         ]);
         window.getInitials = () => 'NP';
         window.formatDate = (d) => d;
@@ -53,11 +54,17 @@ describe('Politician Page Integration', () => {
 
         // Simulate what app.js does:
         const politicianTrades = window.getTradesByPolitician('P0005');
-        const topStocks = window.analytics.getTopStocksForPolitician(politicianTrades);
+
+        // Match the filtering logic in app.js
+        const thirtyDaysAgo = new Date();
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        const recentTrades = politicianTrades.filter(t => new Date(t.date) >= thirtyDaysAgo);
+
+        const topStocks = window.analytics.getTopStocksForPolitician(recentTrades, 10);
         chartContainer.innerHTML = window.BarChart.render(topStocks);
 
         // Verify
-        expect(window.analytics.getTopStocksForPolitician).toHaveBeenCalledWith(politicianTrades);
+        expect(window.analytics.getTopStocksForPolitician).toHaveBeenCalledWith(recentTrades, 10);
         expect(window.BarChart.render).toHaveBeenCalledWith(topStocks);
         expect(chartContainer.innerHTML).toBe('<div class="chart"></div>');
     });

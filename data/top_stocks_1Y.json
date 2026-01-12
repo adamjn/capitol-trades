@@ -33,5 +33,40 @@
         "company": "Alphabet Inc",
         "volume": 54300000,
         "volumeStr": "$54.3M"
+    },
+    {
+        "rank": 6,
+        "ticker": "AMZN",
+        "company": "Amazon.com Inc",
+        "volume": 49200000,
+        "volumeStr": "$49.2M"
+    },
+    {
+        "rank": 7,
+        "ticker": "META",
+        "company": "Meta Platforms Inc",
+        "volume": 42100000,
+        "volumeStr": "$42.1M"
+    },
+    {
+        "rank": 8,
+        "ticker": "AMD",
+        "company": "Advanced Micro Devices",
+        "volume": 38500000,
+        "volumeStr": "$38.5M"
+    },
+    {
+        "rank": 9,
+        "ticker": "NFLX",
+        "company": "Netflix Inc",
+        "volume": 31200000,
+        "volumeStr": "$31.2M"
+    },
+    {
+        "rank": 10,
+        "ticker": "BRK.B",
+        "company": "Berkshire Hathaway",
+        "volume": 29500000,
+        "volumeStr": "$29.5M"
     }
 ]

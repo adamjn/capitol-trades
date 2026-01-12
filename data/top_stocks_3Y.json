@@ -33,5 +33,40 @@
         "company": "Tesla Inc",
         "volume": 142000000,
         "volumeStr": "$142.0M"
+    },
+    {
+        "rank": 6,
+        "ticker": "GOOGL",
+        "company": "Alphabet Inc",
+        "volume": 128000000,
+        "volumeStr": "$128.0M"
+    },
+    {
+        "rank": 7,
+        "ticker": "META",
+        "company": "Meta Platforms Inc",
+        "volume": 115000000,
+        "volumeStr": "$115.0M"
+    },
+    {
+        "rank": 8,
+        "ticker": "JPM",
+        "company": "JPMorgan Chase & Co",
+        "volume": 98000000,
+        "volumeStr": "$98.0M"
+    },
+    {
+        "rank": 9,
+        "ticker": "V",
+        "company": "Visa Inc",
+        "volume": 85000000,
+        "volumeStr": "$85.0M"
+    },
+    {
+        "rank": 10,
+        "ticker": "UNH",
+        "company": "UnitedHealth Group",
+        "volume": 78000000,
+        "volumeStr": "$78.0M"
     }
 ]
