@@ -34,4 +34,13 @@ describe('Analytics Service', () => {
         const result = analytics.getTopStocksForPolitician(manyTrades, 5);
         expect(result).toHaveLength(5);
     });
+
+    test('parseAmount should handle K, M, B suffixes and ranges', () => {
+        expect(analytics.parseAmount('$1K')).toBe(1000);
+        expect(analytics.parseAmount('$1.5M')).toBe(1500000);
+        expect(analytics.parseAmount('$10B')).toBe(10000000000);
+        expect(analytics.parseAmount('$50K - $100K')).toBe(75000);
+        expect(analytics.parseAmount('$1M - $5M')).toBe(3000000);
+        expect(analytics.parseAmount('$1,001 - $15,000')).toBe(8000.5);
+    });
 });

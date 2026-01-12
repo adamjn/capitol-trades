@@ -9,19 +9,28 @@ const analytics = {
      */
     parseAmount(amountStr) {
         if (!amountStr) return 0;
-        // Remove currency symbol and commas
-        const clean = amountStr.replace(/[$,]/g, '');
 
-        // Handle ranges (e.g. "1001-15000")
-        if (clean.includes('-')) {
-            const parts = clean.split('-').map(p => parseFloat(p.trim()));
-            // Return average of range
-            if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+        const parseValue = (s) => {
+            let val = parseFloat(s.replace(/[$,\s]/g, ''));
+            if (isNaN(val)) return 0;
+
+            const upper = s.toUpperCase();
+            if (upper.includes('B')) val *= 1e9;
+            else if (upper.includes('M')) val *= 1e6;
+            else if (upper.includes('K')) val *= 1e3;
+
+            return val;
+        };
+
+        // Handle ranges (e.g. "$1,001 - $15,000" or "$50K - $100K")
+        if (amountStr.includes('-')) {
+            const parts = amountStr.split('-').map(p => parseValue(p.trim()));
+            if (parts.length === 2) {
                 return (parts[0] + parts[1]) / 2;
             }
         }
 
-        return parseFloat(clean) || 0;
+        return parseValue(amountStr);
     },
 
     /**
