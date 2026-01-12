@@ -1,0 +1,37 @@
+[
+    {
+        "rank": 1,
+        "ticker": "AAPL",
+        "company": "Apple Inc",
+        "volume": 542000000,
+        "volumeStr": "$542.0M"
+    },
+    {
+        "rank": 2,
+        "ticker": "MSFT",
+        "company": "Microsoft Corp",
+        "volume": 478000000,
+        "volumeStr": "$478.0M"
+    },
+    {
+        "rank": 3,
+        "ticker": "AMZN",
+        "company": "Amazon.com Inc",
+        "volume": 325000000,
+        "volumeStr": "$325.0M"
+    },
+    {
+        "rank": 4,
+        "ticker": "GOOGL",
+        "company": "Alphabet Inc",
+        "volume": 287000000,
+        "volumeStr": "$287.0M"
+    },
+    {
+        "rank": 5,
+        "ticker": "META",
+        "company": "Meta Platforms",
+        "volume": 245000000,
+        "volumeStr": "$245.0M"
+    }
+]

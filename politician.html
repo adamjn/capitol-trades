@@ -41,6 +41,16 @@
     <div class="section">
         <div class="container">
 
+            <!-- Top Traded Stocks Section -->
+            <div class="section-container" style="margin-bottom: 2rem;">
+                <div class="card insight-card">
+                    <h3>Top Traded Stocks (All Time)</h3>
+                    <div id="politician-history-chart">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+
             <!-- Current Portfolio Section -->
             <div class="section-header">
                 <div class="section-title">
@@ -48,6 +58,8 @@
                     <h2>Current Portfolio</h2>
                 </div>
             </div>
+
+            <!-- ... (existing portfolio table) -->
 
             <div class="table-container" style="margin-bottom: 3rem;">
                 <table class="data-table">
@@ -111,6 +123,8 @@
     </footer>
 
     <script src="data.js"></script>
+    <script src="js/services/analytics.js"></script>
+    <script src="js/components/BarChart.js"></script>
     <script src="app.js"></script>
 </body>
 

@@ -1,0 +1,37 @@
+[
+    {
+        "rank": 1,
+        "ticker": "AAPL",
+        "company": "Apple Inc",
+        "volume": 285000000,
+        "volumeStr": "$285.0M"
+    },
+    {
+        "rank": 2,
+        "ticker": "MSFT",
+        "company": "Microsoft Corp",
+        "volume": 247000000,
+        "volumeStr": "$247.0M"
+    },
+    {
+        "rank": 3,
+        "ticker": "NVDA",
+        "company": "NVIDIA Corp",
+        "volume": 198000000,
+        "volumeStr": "$198.0M"
+    },
+    {
+        "rank": 4,
+        "ticker": "AMZN",
+        "company": "Amazon.com Inc",
+        "volume": 165000000,
+        "volumeStr": "$165.0M"
+    },
+    {
+        "rank": 5,
+        "ticker": "TSLA",
+        "company": "Tesla Inc",
+        "volume": 142000000,
+        "volumeStr": "$142.0M"
+    }
+]

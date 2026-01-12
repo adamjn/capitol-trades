@@ -95,7 +95,8 @@ function renderTradeRow(trade) {
 }
 
 // Tab switching for volume list
-window.switchVolumeTab = function (period) {
+// Tab switching for volume list
+window.switchVolumeTab = async function (period) {
   // Update active tab state
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.classList.toggle('active', btn.textContent === period);
@@ -104,28 +105,31 @@ window.switchVolumeTab = function (period) {
   const volumeList = document.getElementById('top-volume-list');
   if (!volumeList) return;
 
-  // Select data based on period
-  let data = topStocks1Y; // Default to 1Y
-  if (period === '3Y') data = topStocks3Y;
-  if (period === '6Y') data = topStocks6Y;
+  // Show loading state
+  volumeList.innerHTML = '<div class="loading-spinner">Loading...</div>';
 
-  volumeList.innerHTML = data.map(stock => {
-    const changeClass = stock.change.startsWith('+') ? 'positive' : 'negative';
-    // Remove "Corp" or "Inc" for cleaner mobile view if needed, but keeping full for now
-    return `
-      <div class="top-list-item">
-        <div class="rank-badge">${stock.rank}</div>
-        <div class="stock-info">
-          <div class="stock-ticker">${stock.ticker}</div>
-          <div class="stock-name">${stock.company}</div>
-        </div>
-        <div class="stock-stat">
-          <span class="stat-primary" title="Total Trading Volume">${stock.volume}</span>
-          <span class="stat-change ${changeClass}" title="24h Price Change">${stock.change} (24h)</span>
-        </div>
-      </div>
-    `;
-  }).join('');
+  try {
+    // Fetch data using the API service
+    // Fallback to legacy array if API fails or global variable exists as a fallback?
+    // For now, strict switch to API.
+    let data = [];
+    if (window.api) {
+      data = await window.api.fetchTopStocks(period);
+    } else {
+      console.warn('API service not loaded.');
+    }
+
+    // Render using BarChart component
+    if (window.BarChart) {
+      volumeList.innerHTML = window.BarChart.render(data);
+    } else {
+      // Fallback or error
+      volumeList.innerHTML = 'Error: BarChart component missing.';
+    }
+  } catch (err) {
+    console.error(err);
+    volumeList.innerHTML = '<div class="error-state">Failed to load data</div>';
+  }
 };
 
 // Homepage initialization
@@ -341,6 +345,16 @@ function initPoliticianPage() {
         </div>
       </div>
     `;
+  }
+
+
+  // Render Top Traded Stocks Chart
+  const historyChart = document.getElementById('politician-history-chart');
+  if (historyChart && window.analytics && window.BarChart) {
+    const topStocks = window.analytics.getTopStocksForPolitician(politicianTrades);
+    historyChart.innerHTML = window.BarChart.render(topStocks);
+  } else if (historyChart) {
+    historyChart.innerHTML = '<div class="error-state">Analytics module not loaded</div>';
   }
 
   // Render portfolio table
